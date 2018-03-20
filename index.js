@@ -4,7 +4,8 @@
 module.exports = {
   name: 'ember-cli-google-tag-manager',
   contentFor: function(type, config){
-    var config = config['googleTagManager']
+    var app_config = Ember.getOwner(this).resolveRegistration('config:environment');
+    var config = app_config['googleTagManager']
     var appId = config && config.appId
 
     if (!appId) {
