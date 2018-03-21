@@ -1,11 +1,13 @@
 /* jshint node: true */
 'use strict';
+import config from 'ember-get-config';
 
 module.exports = {
   name: 'ember-cli-google-tag-manager',
   contentFor: function(type, config){
-    var app_config = Ember.getOwner(this).resolveRegistration('config:environment');
-    var config = app_config['googleTagManager']
+    const { environment, modulePrefix } = config;
+    
+    var config = environment.googleTagManager
     var appId = config && config.appId
 
     if (!appId) {
