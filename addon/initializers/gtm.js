@@ -1,10 +1,10 @@
-export function initialize(container /*, application */) {
+export function initialize(app /*, application */) {
   // Do not inject anythin in the router if appId is not present
 
   var appId = 'GTM-TQM3XTF'
 
-  var router = container.lookup('router:main');
-  var gtm = container.lookup('service:gtm')
+  var router = app.lookup('router:main');
+  var gtm = app.lookup('service:gtm')
 
   router.on('didTransition', function () {
     gtm.trackPageView(this.get('url'));
