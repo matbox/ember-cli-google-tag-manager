@@ -1,7 +1,9 @@
 export function initialize(container /*, application */) {
   // Do not inject anythin in the router if appId is not present
-  import app_config from 'ember-get-config';
-  var config = app_config.googleTagManager
+  import config from 'ember-get-config';
+  const { environment, modulePrefix } = config;
+  
+  var config = environment.googleTagManager
   var appId = config && config.appId
   if (!appId) {
     return
